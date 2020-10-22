@@ -21,7 +21,8 @@ To deploy the API into GCP using cloud SDK run the following:
 
 
 ## Project Description<a name="description"></a>
-gcp-encrypt loads a csv file from a GCP bucket, encrypts some columns using SHA-256 encryption. A "_enc.csv" is stored in another bucket with the encrypted columns replacing the clear ones.
+gcp-encrypt loads a csv file from a GCP bucket, encrypts some columns using SHA-256 encryption. A `enc.csv` is stored in another bucket with the encrypted columns replacing the clear ones.
+The API is deployed to GCP as a Cloud Function.
 
 
 ## File Descriptions <a name="files"></a>
