@@ -13,11 +13,26 @@ Encryption and decryption GCP APIs
 The code in this project is written in Python 3.7.6).
 The following additional libraries have been used:
 * pandas
-* google.cloud
-* crypto 1.4.1
+* google-cloud
+* pandas-gbq
+* google-cloud-storage
+* google-cloud-bigquery
+* gcsfs
+* pycrypto
 
 
-To deploy the API into GCP using cloud SDK run the following:
+To deploy the Cloud Function into GCP using cloud SDK run the following:
+
+gcloud functions deploy gcp-encrypt \
+--runtime python37 \
+--env-vars-file ./env.yaml \
+--entry-point encrypt_from_bucket \
+--trigger-resource YOUR_TRIGGER_BUCKET_NAME \
+--trigger-event google.storage.object.finalize
+
+To Expose the Cloud Function as API:
+
+
 
 
 ## Project Description<a name="description"></a>
@@ -26,8 +41,10 @@ The API is deployed to GCP as a Cloud Function.
 
 
 ## File Descriptions <a name="files"></a>
-
-
+* requirements.txt
+* main.py
+* env.yaml
+* key.json
 
 
 
