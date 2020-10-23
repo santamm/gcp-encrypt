@@ -21,12 +21,17 @@ The following additional libraries have been used:
 * pycrypto
 
 
-To deploy the API into GCP using cloud SDK run the following:
+To deploy the Cloud Function into GCP using cloud SDK run the following:
 
 gcloud functions deploy gcp-encrypt \
 --runtime python37 \
+--env-vars-file ./env.yaml \
+--entry-point encrypt_from_bucket \
 --trigger-resource YOUR_TRIGGER_BUCKET_NAME \
 --trigger-event google.storage.object.finalize
+
+To Expose the Cloud Function as API:
+
 
 
 
